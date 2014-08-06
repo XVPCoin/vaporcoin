@@ -21,6 +21,7 @@ files:
 - "qrencode-3.4.3.tar.bz2"
 - "protobuf-2.5.0.tar.bz2"
 - "db-4.8.30.NC.tar.gz"
+- "gmp-5.1.2.tar.bz2"
 script: |
   STAGING="$HOME/install"
   TEMPDIR="$HOME/tmp"
@@ -36,6 +37,13 @@ script: |
   echo "13bfc5ae543cf3aa180ac2485c0bc89495e3ae711fc6fab4f8ffe90dfb4bb677  protobuf-2.5.0.tar.bz2" | sha256sum -c
   echo "12edc0df75bf9abd7f82f821795bcee50f42cb2e5f76a6a281b85732798364ef  db-4.8.30.NC.tar.gz"    | sha256sum -c
 
+  #
+  tar xjf gmp-5.1.2.tar.bz2
+  cd gmp-5.1.2
+  ./configure --enable-cxx --prefix=$STAGING --enable-static
+  make
+  make $MAKEOPTS install
+  cd ..
   #
   tar xzf openssl-1.0.1g.tar.gz
   cd openssl-1.0.1g
