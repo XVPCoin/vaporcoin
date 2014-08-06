@@ -11,6 +11,7 @@ packages:
 - "zip"
 - "pkg-config"
 - "libtool"
+- "m4"
 - "faketime"
 - "bsdmainutils"
 reference_datetime: "2013-06-01 00:00:00"
